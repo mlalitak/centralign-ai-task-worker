@@ -1,0 +1,2 @@
+streamlit>=1.35,<2.0
+openai>=1.30,<3.0  # optional: only needed when OPENAI_API_KEY is configured

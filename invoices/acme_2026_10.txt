@@ -1,0 +1,6 @@
+Invoice Number: ACME-2026-104
+Company: Acme Corp
+Invoice Date: 2026-10-03
+Due Date: 2026-11-02
+Total Due: INR 22,750.00
+Description: October platform subscription

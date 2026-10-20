@@ -1,0 +1,6 @@
+Invoice Number: CON-2026-032
+Company: Contoso Services
+Invoice Date: 2026-10-12
+Due Date: 2026-11-11
+Total Due: USD 1,250.00
+Description: Consulting services

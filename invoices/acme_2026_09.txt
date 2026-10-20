@@ -1,0 +1,6 @@
+Invoice Number: ACME-2026-091
+Company: Acme Corp
+Invoice Date: 2026-09-10
+Due Date: 2026-10-10
+Total Due: INR 18,450.00
+Description: Monthly software services
