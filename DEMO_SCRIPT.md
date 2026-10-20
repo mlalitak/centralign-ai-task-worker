@@ -1,15 +1,39 @@
-# Demo script / interview talk track
+# Demo Script — Autonomous Invoice Task Worker
 
-**Opening (15 seconds):** “I chose a narrow invoice workflow because the assignment values real execution and verification over simulated breadth. This prototype reads synthetic invoices from a sandbox and writes to a local SQLite finance app.”
+**Duration:** Approximately 2–3 minutes
 
-**Show the request (15 seconds):** Submit the default Acme invoice task. Explain that the worker extracts the company and makes a plan instead of asking the user to spell out each action.
+## 1. Introduction (15 seconds)
 
-**Show the trace (45 seconds):** Walk through search, extraction, validation, write, and read-back verification. Point out that every tool response is recorded and that the worker will not report success if verification fails.
+“I built a focused invoice-processing workflow because I wanted to demonstrate actual execution and verification rather than simulate a general-purpose agent. The worker processes synthetic invoice files in a sandbox and writes the results to a local SQLite finance ledger.”
 
-**Show the saved record (20 seconds):** Highlight invoice `ACME-2026-104`, amount INR 22,750.00, and due date 2026-11-02. The October invoice is selected because its invoice date is newer than the September invoice.
+## 2. Submit the task (15 seconds)
 
-**Show reliability (30 seconds):** Run the same task again. The unique invoice number makes the operation idempotent, so a duplicate row is not inserted. Try an unknown company and show that the worker stops instead of claiming completion.
+Submit the default Acme invoice request.
 
-**Explain trade-offs (30 seconds):** The planner is intentionally fixed to one workflow, while company extraction can optionally use an LLM. Tools and permissions remain explicit in code. Next steps would be PDF/email/browser connectors, policy-based approvals, checkpoints, and systematic evaluations.
+“The user specifies the desired outcome in natural language. The worker identifies the company, creates a plan for the supported workflow, and executes the required steps without needing the user to specify each tool call.”
 
-**Be candid:** Do not describe this as a general computer-use agent. It is an end-to-end prototype for a constrained local environment.
+## 3. Explain the execution trace (45 seconds)
+
+Expand the trace and walk through invoice search, extraction, validation, saving, and read-back verification.
+
+“Each tool action produces an observable result that is recorded in the execution trace. After saving the invoice, the worker reads the record back and compares the stored values. It reports success only when the implemented verification checks pass.”
+
+## 4. Show the saved record (20 seconds)
+
+Highlight invoice `ACME-2026-104`, amount INR 22,750.00, and due date `2026-11-02`.
+
+“The worker selects the October invoice because its invoice date is later than the September invoice date. It then saves the extracted fields and verifies the resulting database record.”
+
+## 5. Demonstrate reliability (30 seconds)
+
+Run the same task again, then try a company that does not exist in the sample invoices.
+
+“Repeated execution should not create a duplicate invoice record. When the requested company is unknown, the worker stops safely instead of reporting a false success. I also wrote unit tests for successful processing, missing company information, duplicate prevention, and unknown companies.”
+
+## 6. Discuss design trade-offs and next steps (30 seconds)
+
+“The workflow is intentionally constrained to invoice processing. An OpenAI model can optionally help extract task and company information, but Python controls the available tools and execution steps. With another two weeks, I would focus on dynamic tool selection, additional document and application integrations, stronger recovery and approval mechanisms, and systematic evaluation.”
+
+## Important scope clarification
+
+“This is a working proof of concept for a constrained local environment, not a general-purpose computer-use agent. The invoice files and finance ledger are local, and the prototype does not access real company systems.”
