@@ -203,16 +203,24 @@ Report status, evidence, and execution trace
 
 See [`DEMO_SCRIPT.md`](DEMO_SCRIPT.md) for a concise speaking outline.
 
-## Submission status
+## Project Status and Demo
 
-- [x] Source code committed and pushed to GitHub.
-- [x] Setup and run instructions.
-- [x] Architecture, design decisions, assumptions, and limitations documented.
-- [x] Frameworks and optional model/API use disclosed.
-- [x] Unit tests included (4 tests passed in the development run).
-- [x] Demo walkthrough instructions included.
-- [ ] Record and share a demo video, or prepare a live walkthrough.
-- [ ] Add the demo link to the application submission, if requested.
+This project is a working proof of concept for autonomous task execution within a constrained invoice-processing workflow.
+
+**Implemented**
+- End-to-end invoice discovery, extraction, validation, and database entry.
+- Read-back verification and structured execution traces.
+- Duplicate prevention and safe handling of missing or unknown company information.
+- Four unit tests covering core success and failure scenarios.
+
+**Demo**
+Run the application locally using the setup instructions above. The `DEMO_SCRIPT.md` file provides a short walkthrough of the workflow, verification process, and failure handling.
+
+**Current scope**
+The prototype uses synthetic invoice files and a local SQLite database. It does not connect to real company systems or provide general-purpose browser automation.
+
+**Future work**
+Planned improvements include dynamic tool selection, additional integrations, stronger recovery mechanisms, and systematic evaluation of task reliability.
 
 ## Technologies and disclosure
 
